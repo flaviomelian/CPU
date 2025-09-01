@@ -1,41 +1,57 @@
 package com.flavio.spring.services;
 
 import com.flavio.spring.models.RegisterModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ALUService {
-    
-    @Autowired
-    private RegisterService registerService;
 
-    public int add(int reg1, int reg2) {
-        return reg1 + reg2;
+    public RegisterModel add(RegisterModel reg1, RegisterModel reg2, RegisterModel dest) {
+        int result = reg1.getValue() + reg2.getValue();
+        dest.setValue(result & 0xFF); // Aseguramos que el valor esté en 8 bits
+        return dest;
     }
 
-    public int sub(int reg1, int reg2) {
-        return reg1 - reg2;
+    public RegisterModel sub(RegisterModel reg1, RegisterModel reg2, RegisterModel dest) {
+        int result = reg1.getValue() - reg2.getValue();
+        dest.setValue(result & 0xFF); // limitar a 8 bits
+        return dest;
     }
 
-    public int and(int reg1, int reg2) {
-        return reg1 & reg2;
+    public RegisterModel mul(RegisterModel reg1, RegisterModel reg2, RegisterModel dest) {
+        int result = reg1.getValue() * reg2.getValue();
+        dest.setValue(result & 0xFF); // limitar a 8 bits
+        return dest;
     }
 
-    public int or(int reg1, int reg2) {
-        return reg1 | reg2;
+    public RegisterModel and(RegisterModel reg1, RegisterModel reg2, RegisterModel dest) {
+        int result = reg1.getValue() & reg2.getValue();
+        dest.setValue(result & 0xFF);
+        return dest;
     }
 
-    public int not(int reg) {
-        return (~reg) & 0xFF;
+    public RegisterModel or(RegisterModel reg1, RegisterModel reg2, RegisterModel dest) {
+        int result = reg1.getValue() | reg2.getValue();
+        dest.setValue(result & 0xFF);
+        return dest;
     }
 
-    public int inc(int reg) {
-        return (reg + 1) & 0xFF;
+    public RegisterModel not(RegisterModel reg, RegisterModel dest) {
+        int result = (~reg.getValue()) & 0xFF;
+        dest.setValue(result);
+        return dest;
     }
 
-    public int dec(int reg) {
-        return (reg - 1) & 0xFF;
+    public RegisterModel inc(RegisterModel reg, RegisterModel dest) {
+        int result = (reg.getValue() + 1) & 0xFF;
+        dest.setValue(result);
+        return dest;
     }
-    
+
+    public RegisterModel dec(RegisterModel reg, RegisterModel dest) {
+        int result = (reg.getValue() - 1) & 0xFF;
+        dest.setValue(result);
+        return dest;
+    }
+
 }
