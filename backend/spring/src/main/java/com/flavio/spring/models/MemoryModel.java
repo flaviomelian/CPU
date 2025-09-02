@@ -16,5 +16,14 @@ public class MemoryModel {
     @Id
     private int address;   // dirección de cache
     private int value;     // contenido
+
+    public String getHexAddress() {
+        return String.format("0x%02X", this.address);
+    }
+
+    public String getHexValue() {
+        return String.format("0x%02X", this.value & 0xFF);
+    }
+    
 }
 
