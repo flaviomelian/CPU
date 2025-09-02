@@ -1,0 +1,22 @@
+.header{
+    background-color: #4086cb;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header img {
+    width: 5%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(58, 110, 222);
+}
+
+.header img:hover {
+    background-color: rgb(21, 51, 132);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}

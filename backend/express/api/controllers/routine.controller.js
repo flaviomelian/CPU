@@ -1,6 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const axios = require("axios");
+import fs from "fs";
+import path from "path";
+import axios from "axios";
+
 
 const uploadRoutine = async (req, res) => {
   const { routine } = req.body;
@@ -20,7 +21,8 @@ const uploadRoutine = async (req, res) => {
 
 const getState = async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:8080/state");
+    const response = await axios.get("http://localhost:8080/memory");
+    console.log('Estado obtenido desde Spring:', response.data);
     res.json(response.data);
   } catch (err) {
     res.status(500).json({ error: "Error obteniendo estado desde Spring", details: err.message });

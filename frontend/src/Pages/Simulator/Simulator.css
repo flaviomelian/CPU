@@ -1,0 +1,12 @@
+.simulator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 89vh;
+}
+
+.simulator div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
