@@ -4,7 +4,7 @@ import './Editor.css'
 const Editor = () => {
   return (
     <div id='editor'>
-      <textarea rows="40" cols="20" placeholder="Escribe tu rutina aqui..."/>
+      <textarea rows="30" cols="20" placeholder="Escribe tu rutina aqui..."/>
       <button>Ensamblar y Cargar</button>
     </div>
   )

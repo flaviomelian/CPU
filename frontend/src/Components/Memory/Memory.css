@@ -3,6 +3,7 @@
   overflow-x: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .memory-table {
@@ -16,12 +17,17 @@
   border: 1px solid #ccc;
   padding: 0.25rem 0.5rem;
   font-family: monospace;
+  font-size: 15px;
+  color: #0077ff;
 }
 
 .memory-cell {
-  background-color: #f9f9f9;
+  background-color: #123547;
 }
 
-.memory-cell.active {
-  background-color: #ffd700; /* resaltar la celda activa si quieres */
+.memory-cell.used {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: #3a9fd1;
 }
+

@@ -1,0 +1,28 @@
+.head {
+    background-color: #005d79;
+    color: white;
+    padding: 10px;
+}
+
+.name, .value {
+    border: none;
+    padding: 8px;
+    text-align: center;
+}
+
+.name {
+    background-color: #43caff;
+    color: black;
+}
+
+.value {
+    background-color: #1395d1;
+    color: black;
+}
+
+.registers-table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}

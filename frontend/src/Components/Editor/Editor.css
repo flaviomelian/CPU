@@ -1,4 +1,21 @@
 #editor {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
 }

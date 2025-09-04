@@ -1,0 +1,11 @@
+input {
+    width: 20%;
+    margin-bottom: 3%;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 4px;
+}
