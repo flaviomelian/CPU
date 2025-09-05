@@ -1,12 +1,20 @@
-import React from 'react'
-import './Instruction.css'
+import React from 'react';
+import './Instruction.css';
 
-const Instruction = () => {
+const Instruction = ({ execute }) => {
   return (
-    <form>
-      <input placeholder='Ejecutar instrucción de manera individual' />
-    </form>
-  )
-}
+    <input
+      type="text"
+      placeholder="Ejecutar instrucción de manera individual"
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          console.log("Instrucción:", e.target.value);
+          execute(e.target.value); // ya no es execute.execute
+          e.target.value = ""; // limpiar input
+        }
+      }}
+    />
+  );
+};
 
-export default Instruction
+export default Instruction;

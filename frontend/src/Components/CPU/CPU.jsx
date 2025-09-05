@@ -1,16 +1,16 @@
-import ALU from "../ALU/ALU"
-import UC from "../UC/UC"
-import Registers from "../Registers/Registers"
-import './CPU.css'
+import ALU from "../ALU/ALU";
+import UC from "../UC/UC";
+import Registers from "../Registers/Registers";
+import './CPU.css';
 
-const CPU = () => {
+const CPU = ({ activeInstruction }) => {
   return (
     <div className="cpu-container">
       <ALU />
-      <UC />
+      <UC activeInstruction={activeInstruction} />
       <Registers />
     </div>
-  )
-}
+  );
+};
 
-export default CPU
+export default CPU;
