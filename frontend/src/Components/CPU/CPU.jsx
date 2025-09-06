@@ -6,8 +6,10 @@ import './CPU.css';
 const CPU = ({ activeInstruction }) => {
   return (
     <div className="cpu-container">
-      <ALU />
-      <UC activeInstruction={activeInstruction} />
+      <div>
+        <ALU />
+        <UC activeInstruction={activeInstruction} />
+      </div>
       <Registers />
     </div>
   );

@@ -29,4 +29,15 @@ const getState = async (req, res) => {
   }
 };
 
-export {uploadRoutine, getState};
+const execute = async (req, res) => {
+  const { instruction } = req.body;
+  try {
+    const response = await axios.post("http://localhost:8080/uc/execute", { instruction });
+    console.log('Instrucción ejecutada en Spring:', response.data);
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: "Error ejecutando instrucción en Spring", details: err.message });
+  }
+};
+
+export { uploadRoutine, getState, execute };

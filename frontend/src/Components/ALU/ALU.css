@@ -1,15 +1,26 @@
 #alu-container {
   display: flex;
   flex-direction: column; /* apila vertical */
-  gap: 10px;              /* espacio entre operaciones */
-  padding: 15px;
+  padding: 15%;
   background-color: #f0f4f8;
   border-radius: 8px;
-  max-width: 120px;       /* ancho ajustable */
   margin: 15px auto;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-items: center;    /* centra horizontalmente */
+}
+
+.alu {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  color: #1a3e5c;
+}
+
+#operations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;              /* espacio entre operaciones */
 }
 
 .alu-op {
@@ -24,7 +35,7 @@
   color: #1a3e5c;
   transition: all 0.2s ease;
   cursor: default;
-  padding: 5%;
+  padding: 10%;
 }
 
 .alu-op.active {

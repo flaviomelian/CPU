@@ -5,3 +5,10 @@
     padding: 20px;
     border-radius: 10px;
 }
+
+.cpu-container div {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 20px;
+}

@@ -3,6 +3,7 @@ import Editor from '../../Components/Editor/Editor';
 import CPU from '../../Components/CPU/CPU';
 import Memory from '../../Components/Memory/Memory';
 import Instruction from '../../Components/Instruction/Instruction';
+import { executeInstruction } from '../../Services/UCService';
 import './Simulator.css';
 
 const Simulator = () => {
@@ -10,6 +11,7 @@ const Simulator = () => {
 
   const execute = (instruction) => {
     setCurrentInstruction(instruction); // guardo la última ejecutada
+    //executeInstruction(currentInstruction); // llamo al servicio para ejecutar
   };
 
   return (

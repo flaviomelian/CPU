@@ -1,45 +1,33 @@
-/* UC.css */
-
 #uc-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: linear-gradient(145deg, #418bfb, #1e9eff);
+  padding: 1rem;
+  background: #111;
+  color: #eee;
   border-radius: 12px;
-  max-width: 400px;
-  margin: 20px;
-  box-shadow: 0 4px 15px rgba(0, 64, 128, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  gap: 2px;
+  height: 40vh;
 }
 
-.uc-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1a3e5c;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.uc-stages {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.1rem;
+  width: 90%;
 }
 
-.uc-instruction {
-  width: 85%;
-  padding: 12px 16px;
-  margin: 6px 0;
-  background-color: #f8fbff;
-  border: 1px solid #cfe2ff;
+.uc-stage {
+  background: #222;
+  padding: 3%;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1a3e5c;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: row;
+  height: 14%;
+  width: 100%;
 }
 
-.uc-instruction.active {
-  background-color: #1a3e5c;
-  color: #ffffff;
-  border-color: #1a3e5c;
-  box-shadow: 0 0 12px rgba(26, 62, 92, 0.4);
-  transform: scale(1.02);
+.uc-stage.active {
+  background: #444;
+  border: 2px solid #00ff88;
 }

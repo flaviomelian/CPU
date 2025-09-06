@@ -23,14 +23,17 @@ const ALU = () => {
 
   return (
     <div id="alu-container">
-      {operations.map((op) => (
-        <div
-          key={op}
-          className={`alu-op ${activeOp === op ? 'active' : ''}`}
-        >
-          {op}
-        </div>
-      ))}
+      <h3 className='alu'>ALU</h3>
+      <div id='operations'>
+        {operations.map((op) => (
+          <div
+            key={op}
+            className={`alu-op ${activeOp === op ? 'active' : ''}`}
+          >
+            {op}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
