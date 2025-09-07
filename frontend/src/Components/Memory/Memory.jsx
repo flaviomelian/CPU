@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import "./Memory.css";
 
@@ -10,7 +10,6 @@ const Memory = () => {
   useEffect(() => {
     // Escuchar los eventos del backend
     socket.on("memoryUpdate", (data) => {
-      console.log("Nueva memoria recibida:", data);
       setMemory(data);
     });
 
@@ -71,6 +70,7 @@ const Memory = () => {
         </thead>
         <tbody>{renderMemoryCells()}</tbody>
       </table>
+      <button onClick={() => socket.emit("requestMemory")}>Limpiar Memoria</button>
     </div>
 
   );

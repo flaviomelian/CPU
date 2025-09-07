@@ -41,8 +41,7 @@ const UC = ({ activeInstruction }) => {
       <div className="uc-stages">
         {stages.map((s, i) => (
           <div key={s} className={`uc-stage ${i === stageIndex ? "active" : ""}`}>
-            <p>{s} <strong>{slots[i] || ""}</strong></p>
-             
+            <p>{s}<br/><strong>{slots[i] || ""}</strong></p>
           </div>
         ))}
       </div>

@@ -33,4 +33,11 @@ public class MemoryService {
         return repository.save(mem);
     }
 
+    public void reset() {
+        repository.findAll().forEach(mem -> {
+            mem.setValue(0);
+            repository.save(mem);
+        });
+    }
+
 }

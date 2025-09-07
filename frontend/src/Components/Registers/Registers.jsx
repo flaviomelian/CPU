@@ -12,7 +12,7 @@ const Registers = () => {
       setRegisters(data)
     }
     fetchRegisters()
-  }, [])
+  }, [registers])
 
   return (
     <div>

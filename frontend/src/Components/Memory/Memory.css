@@ -3,7 +3,8 @@
   overflow-x: auto;
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  justify-content: space-between;
+  height: 65vh;
 }
 
 .memory-table {

@@ -33,6 +33,22 @@ io.on("connection", async (socket) => {
   } catch (err) {
     console.error("Error obteniendo memoria inicial:", err.message);
   }
+
+  socket.on("requestMemory", async () => {
+    try {
+      // Llamas al endpoint de Spring para resetear
+      await axios.post("http://localhost:8080/memory/reset", {});
+
+      // Después de resetear, traes la memoria actualizada
+      const response = await axios.get("http://localhost:8080/memory");
+      lastMemory = response.data;
+
+      // Notificas al cliente
+      io.emit("memoryUpdate", lastMemory);
+    } catch (err) {
+      console.error("Error reseteando memoria:", err.message);
+    }
+  });
 });
 
 

@@ -39,6 +39,12 @@ public class MemoryController {
         return memoryService.saveMemory(memory);
     }
 
+    @PostMapping("/reset")
+    public ResponseEntity<String> resetMemory(@RequestBody MemoryModel memory) {
+        memoryService.reset(); // pones todos los valores a 0
+        return ResponseEntity.ok("Memoria reseteada");
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<MemoryModel> write(@PathVariable Long id, @RequestBody MemoryModel memory) {
         memory.setAddress(id.intValue());

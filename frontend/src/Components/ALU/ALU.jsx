@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './ALU.css';
 import { getALUState } from '../../Services/ALUService'; // endpoint que devuelve la última operación
 
-const ALU = () => {
+const ALU = ({ operation }) => {
   const operations = ['ADD', 'SUB', 'MUL', 'AND', 'OR', 'NOT', 'INC', 'DEC'];
-  const [activeOp, setActiveOp] = useState(null);
+  const [activeOp, setActiveOp] = useState(operation || null);
 
   useEffect(() => {
     const fetchALU = async () => {
