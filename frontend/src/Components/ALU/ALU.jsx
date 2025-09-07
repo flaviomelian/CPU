@@ -9,17 +9,18 @@ const ALU = ({ operation }) => {
   useEffect(() => {
     const fetchALU = async () => {
       try {
-        const op = await getALUState(); // devuelve algo como {operation: 'ADD'}
-        setActiveOp(op.operation);
+        const { operation: op } = await getALUState();
+        setActiveOp(op); // aquí sí usamos lo que viene del servicio
       } catch (err) {
         console.error('Error obteniendo estado ALU:', err);
       }
     };
 
     fetchALU();
-    const interval = setInterval(fetchALU, 500); // refresco cada medio segundo
+    const interval = setInterval(fetchALU, 500);
     return () => clearInterval(interval);
-  }, []);
+  }, []); // solo al montar
+
 
   return (
     <div id="alu-container">

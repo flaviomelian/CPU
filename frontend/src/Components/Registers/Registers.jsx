@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { getRegisters } from '../../Services/registerService'
+import { getRegisters, clearRegisters } from '../../Services/registerService'
 import './Registers.css'
 
 const Registers = () => {
@@ -34,6 +34,7 @@ const Registers = () => {
           }
         </tbody>
       </table>
+      <button className='clear-btn' onClick={() => clearRegisters()}>Limpiar Registros</button>
     </div>
   )
 }

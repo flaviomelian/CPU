@@ -1,13 +1,31 @@
-MOV R0 R1
-COP R2 R3
-ADD R1 R2 R4
-SUB R4 R1 R5
-MUL R2 R3 R6
-INC R0
-DEC R1
-AND R1 R2 R7
-OR R3 R4 R0
-ST R7 0x3B
-LD R5 0x3B
-JMP 0x0A
-JZ R5 0x0F
+.data
+# Definimos valores iniciales en memoria (hexadecimal)
+0x00: 0A 14 1E 28   # Valores para sumar
+0x10: 05 0F 03 07   # Valores para otra operación
+0x20: FF 01 02 03   # Valores de prueba adicionales
+
+.text
+# Inicio de rutina
+# Cargar valores de memoria en registros
+LD R0 0x00    # R0 = 0x0A
+LD R1 0x01    # R1 = 0x14
+LD R2 0x02    # R2 = 0x1E
+
+# Sumar valores
+ADD R3 R0 R1   # R3 = R0 + R1
+ADD R3 R3 R2   # R3 = R3 + R2
+
+# Guardar resultado en memoria
+ST R3 0x30   # Memoria[0x30] = R3
+
+# Manipulaciones adicionales
+LD R0 0x10
+SUB R1 R0 R1
+ST R1 0x40
+
+# Bucle simple
+LOOP_START:
+LD R2 0x20
+DEC R2
+ST R2 0x20
+JNZ R2 LOOP_START  # Saltar si R2 != 0

@@ -44,4 +44,9 @@ public class RegisterController {
         registerService.writeRegister(name, register.getValue());
         return ResponseEntity.ok(register);
     }
+
+    @PutMapping("/clear")
+    public List<RegisterModel> clearRegisters() {
+        return registerService.clearAllRegisters();
+    }
 }

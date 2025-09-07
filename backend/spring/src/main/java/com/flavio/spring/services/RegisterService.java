@@ -33,4 +33,11 @@ public class RegisterService {
         return repository.save(mem);
     }
 
+    public List<RegisterModel> clearAllRegisters() {
+        List<RegisterModel> registers = repository.findAll();
+        for (RegisterModel register : registers) {
+            register.setValue(0);
+        }
+        return repository.saveAll(registers);
+    }
 }

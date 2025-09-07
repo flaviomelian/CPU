@@ -1,20 +1,34 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from 'url';
 import axios from "axios";
 
+// Equivalente a __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const uploadRoutine = async (req, res) => {
   const { routine } = req.body;
-  const tempFile = path.join(__dirname, "../../temp_routine.txt"); // archivo temporal
+
+  if (!routine) {
+    return res.status(400).json({ error: "No se proporcionó la rutina" });
+  }
+
+  // Ruta del archivo temporal
+  const tempFile = path.join(__dirname, "../../temp_routine.txt");
 
   try {
-    fs.writeFileSync(tempFile, routine);
+    // Escribir la rutina en el archivo temporal
+    fs.writeFileSync(tempFile, routine, { encoding: "utf-8" });
 
-    // enviar a Spring
-    const response = await axios.post("http://localhost:8080/execute-routine", { filePath: tempFile });
+    // Enviar a Spring
+    const response = await axios.post("http://localhost:8080/execute-routine", {
+      filePath: tempFile
+    });
 
     res.json({ message: "Rutina enviada a Spring", springResponse: response.data });
   } catch (err) {
+    console.error("Error en uploadRoutine:", err.response?.data || err.message);
     res.status(500).json({ error: "Error comunicando con Spring", details: err.message });
   }
 };
@@ -40,4 +54,23 @@ const execute = async (req, res) => {
   }
 };
 
-export { uploadRoutine, getState, execute };
+const loadMemory = async (req, res) => {
+  const { address, value } = req.body;
+  try {
+    const response = await axios.put(
+      `http://localhost:8080/memory/${address}`,
+      { value } // el body solo necesita el valor
+    );
+    console.log('Memoria actualizada en Spring:', response.data);
+    res.json(response.data);
+  } catch (err) {
+    console.error("Error actualizando memoria:", err.message);
+    res.status(500).json({
+      error: "Error actualizando memoria en Spring",
+      details: err.message,
+    });
+  }
+};
+
+
+export { uploadRoutine, getState, execute, loadMemory };

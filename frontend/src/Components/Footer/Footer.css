@@ -1,0 +1,36 @@
+footer {
+    background-color: #002671;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-left: 10%;
+    height: 100px;
+    width: 80%;
+}
+
+footer div {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 4px;
+}
+
+img:hover {
+    background-color: #ccc;
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}

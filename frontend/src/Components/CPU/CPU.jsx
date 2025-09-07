@@ -7,7 +7,7 @@ const CPU = ({ activeInstruction }) => {
   return (
     <div className="cpu-container">
       <div>
-        <ALU />
+        <ALU operation={activeInstruction}/>
         <UC activeInstruction={activeInstruction} />
       </div>
       <Registers />
